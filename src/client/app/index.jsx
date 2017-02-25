@@ -1,5 +1,8 @@
-const logWorld = (e) => {
-    console.log(e);
-}
+import React from 'react';
+import { render } from 'react-dom';
 
-logWorld('Hello World!');
+const App = () => (
+  <p>Hello React!</p>
+);
+
+render(<App/>, document.getElementById('app'));
