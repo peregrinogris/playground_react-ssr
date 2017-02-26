@@ -9,12 +9,15 @@ const express = require('express');
 const http = require('http');
 
 const appRouting = require('./server/appRouting.jsx');
+const apiRouting = require('./server/apiRoutes.js');
 
 const app = express();
 
 app.use(express.static('public'));
 
 app.set('view engine', 'ejs');
+
+app.use('/api', apiRouting);
 
 app.get('*', appRouting);
 
