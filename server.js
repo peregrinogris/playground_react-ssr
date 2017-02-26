@@ -2,7 +2,7 @@
  * Babel register
  */
 require('babel-register')({
-  ignore: ['node_modules']
+  ignore: ['node_modules'],
 });
 
 const express = require('express');

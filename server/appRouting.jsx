@@ -2,7 +2,7 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
 
-import { routes } from './routes.jsx';
+import routes from './routes';
 
 module.exports = (req, res) => {
   // routes is our object of React routes defined above
@@ -19,8 +19,7 @@ module.exports = (req, res) => {
       const markup = renderToString(<RouterContext {...props} />);
 
       // render `index.ejs`, but pass in the markup we want it to display
-      res.render('index', { markup })
-
+      res.render('index', { markup });
     } else {
       // no route match, so 404. In a real app you might render a custom
       // 404 view here

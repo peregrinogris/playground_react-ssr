@@ -1,6 +1,6 @@
-import AppComponent from '../components/App.jsx';
-import About from '../components/About.jsx';
-import Like from '../components/Like.jsx';
+import AppComponent from '../components/App';
+import About from '../components/About';
+import Like from '../components/Like';
 
 const routes = {
   path: '',
@@ -8,13 +8,13 @@ const routes = {
   childRoutes: [
     {
       path: '/',
-      component: Like
+      component: Like,
     },
     {
       path: '/about',
-      component: About
-    }
-  ]
-}
+      component: About,
+    },
+  ],
+};
 
-export { routes };
+export default routes;

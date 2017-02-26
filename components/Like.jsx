@@ -4,13 +4,13 @@ class Like extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {likes : [1, 1, 1]};
+    this.state = { likes: [1, 1, 1] };
     this.onLike = this.onLike.bind(this);
   }
 
-  onLike () {
-    let newLikesCount = this.state.likes.push(1);
-    this.setState({likesCount: newLikesCount});
+  onLike() {
+    const newLikesCount = this.state.likes.push(1);
+    this.setState({ likesCount: newLikesCount });
   }
 
   render() {

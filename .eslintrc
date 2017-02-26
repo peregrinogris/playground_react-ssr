@@ -1,0 +1,15 @@
+{
+  "extends": "airbnb",
+  "rules": {
+    "max-len": ["warn", 80, 2, {
+      "ignoreUrls": true,
+      "ignoreComments": false
+    }],
+    "no-param-reassign": ["error", { "props": false }],
+    "class-methods-use-this": "off",
+    "global-require": "off",
+    "react/no-unused-prop-types": ["warn"],
+    "react/prop-types": ["warn"],
+    "react/jsx-filename-extension": "off",
+  }
+}
