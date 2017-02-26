@@ -12,7 +12,7 @@ const appRouting = require('./server/appRouting.jsx');
 
 const app = express();
 
-app.use(express.static('src/client/public'));
+app.use(express.static('public'));
 
 app.set('view engine', 'ejs');
 

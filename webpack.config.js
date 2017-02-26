@@ -1,11 +1,10 @@
 var webpack = require('webpack');
 var path = require('path');
 
-var BUILD_DIR = path.resolve(__dirname, 'src/client/public');
-var APP_DIR = path.resolve(__dirname, 'src/client/app');
+var BUILD_DIR = path.resolve(__dirname, 'public');
 
 var config = {
-  entry: path.join(process.cwd(), 'src/client/app/client-render.js'),
+  entry: path.join(process.cwd(), 'client/client-render.js'),
   output: {
     path: BUILD_DIR,
     filename: 'bundle.js'
@@ -15,8 +14,8 @@ var config = {
       {
         test : /\.jsx?/,
         include : [
-          APP_DIR,
-          path.resolve(__dirname, 'src/components')
+          path.resolve(__dirname, 'client'),
+          path.resolve(__dirname, 'components')
         ],
         loader : 'babel-loader'
       }
