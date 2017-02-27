@@ -9,7 +9,7 @@ const express = require('express');
 const http = require('http');
 
 const appRouting = require('./server/appRouting.jsx');
-const apiRouting = require('./server/apiRoutes.js');
+const apiRouter = require('./server/routes-api.js');
 
 const app = express();
 
@@ -17,7 +17,7 @@ app.use(express.static('public'));
 
 app.set('view engine', 'ejs');
 
-app.use('/api', apiRouting);
+app.use('/api', apiRouter);
 
 app.get('*', appRouting);
 
