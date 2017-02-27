@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import ViewToggle from './ViewToggle';
 import { addLike } from './actions';
 
 const mapStateToProps = state => ({
@@ -13,12 +14,24 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
+const options = [
+  {
+    value: 'classic',
+    text: 'Classic',
+  },
+  {
+    value: 'compact',
+    text: 'Compact',
+  },
+];
+
 const Like = ({ likes, onLike }) => (
   <div>
     Likes: {likes}
     <div>
       <button onClick={onLike}>Like Me</button>
     </div>
+    <ViewToggle options={options} />
   </div>
 );
 
