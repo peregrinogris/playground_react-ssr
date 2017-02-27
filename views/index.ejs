@@ -6,6 +6,9 @@
 
   <body>
     <div id="app"><%- markup %></div>
+    <script>
+      window.__PRELOADED_STATE__ = <%- preloadedState %>;
+    </script>
     <script src="bundle.js"></script>
   </body>
 </html>

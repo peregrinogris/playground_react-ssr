@@ -1,26 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import todoApp from './reducers';
-
-const store = createStore(todoApp);
 
 const App = ({ children }) => (
-  <Provider store={store}>
-    <div>
-      <h2>Welcome to my App</h2>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
-      </ul>
-      { children }
-    </div>
-  </Provider>
+  <div>
+    <h2>Welcome to my App</h2>
+    <ul>
+      <li><Link to="/">Home</Link></li>
+      <li><Link to="/about">About</Link></li>
+    </ul>
+    { children }
+  </div>
 );
 
 App.propTypes = {
-  children: React.PropTypes.arrayOf(React.PropTypes.element),
+  children: React.PropTypes.oneOfType([
+    React.PropTypes.arrayOf(React.PropTypes.element),
+    React.PropTypes.element,
+  ]),
 };
 
 App.defaultProps = {
