@@ -7,6 +7,15 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case actions.LOAD_LIKES: {
+      const likes = [];
+      for (let i = 0; i < action.likes; i += 1) {
+        likes.push('like');
+      }
+      return Object.assign({}, state, {
+        likes,
+      });
+    }
     case actions.ADD_LIKE:
       return Object.assign({}, state, {
         likes: [...state.likes, 'like'],
