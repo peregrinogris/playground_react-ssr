@@ -1,29 +1,38 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-class Like extends React.Component {
+import { addLike } from './actions';
 
-  constructor(props) {
-    super(props);
-    this.state = { likes: [1, 1, 1] };
-    this.onLike = this.onLike.bind(this);
-  }
+const mapStateToProps = state => ({
+  likes: state.likes.map(() => 'Like! '),
+});
 
-  onLike() {
-    const newLikesCount = this.state.likes.push(1);
-    this.setState({ likesCount: newLikesCount });
-  }
+const mapDispatchToProps = dispatch => ({
+  onLike: () => {
+    dispatch(addLike());
+  },
+});
 
-  render() {
-    return (
-      <div>
-        Likes : {
-          this.state.likes.map(() => 'Like! ')
-        }
-        <div><button onClick={this.onLike}>Like Me</button></div>
-      </div>
-    );
-  }
+const Like = ({ likes, onLike }) => (
+  <div>
+    Likes: {likes}
+    <div>
+      <button onClick={onLike}>Like Me</button>
+    </div>
+  </div>
+);
 
-}
+Like.propTypes = {
+  likes: React.PropTypes.arrayOf(React.PropTypes.string),
+  onLike: React.PropTypes.func,
+};
 
-export default Like;
+Like.defaultProps = {
+  likes: [],
+  onLike: () => true,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Like);
