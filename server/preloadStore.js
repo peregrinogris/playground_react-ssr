@@ -1,10 +1,11 @@
 import newStore from '../components/store';
-import { addLike } from '../components/actions';
+import * as actions from '../components/actions';
 
 const preloadStore = () => {
   const store = newStore();
   return new Promise((res) => {
-    store.dispatch(addLike());
+    store.dispatch(actions.addLike());
+    store.dispatch(actions.changeView('compact'));
     res(store);
   });
 };
