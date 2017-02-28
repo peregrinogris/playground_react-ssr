@@ -10,9 +10,7 @@ router.get('/', (req, res) => {
 
 router.post('/likes', (req, res) => {
   likes += 1;
-  res.json({
-    likes,
-  });
+  res.redirect('/');
 });
 
 router.get('/likes', (req, res) => {

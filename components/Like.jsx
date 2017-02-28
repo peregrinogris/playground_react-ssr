@@ -9,7 +9,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onLike: () => {
+  onLike: (e) => {
+    e.preventDefault();
     dispatch(addLike());
   },
 });
@@ -29,7 +30,9 @@ const Like = ({ likes, onLike }) => (
   <div>
     Likes: {likes}
     <div>
-      <button onClick={onLike}>Like Me</button>
+      <form action="/api/likes" method="POST">
+        <button onClick={onLike}>Like Me</button>
+      </form>
     </div>
     <ViewToggle options={options} />
   </div>
