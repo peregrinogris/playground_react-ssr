@@ -10,7 +10,13 @@ router.get('/', (req, res) => {
 
 router.post('/likes', (req, res) => {
   likes += 1;
-  res.redirect('/');
+  if (req.query.redirect) {
+    res.redirect('/');
+  } else {
+    res.json({
+      likes,
+    });
+  }
 });
 
 router.get('/likes', (req, res) => {

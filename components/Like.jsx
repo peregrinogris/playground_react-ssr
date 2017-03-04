@@ -30,7 +30,7 @@ const Like = ({ likes, onLike }) => (
   <div>
     Likes: {likes}
     <div>
-      <form action="/api/likes" method="POST">
+      <form action="/api/likes?redirect=1" method="POST">
         <button onClick={onLike}>Like Me</button>
       </form>
     </div>
