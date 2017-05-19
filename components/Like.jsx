@@ -8,7 +8,8 @@ class Like extends React.Component {
     this.onLike = this.onLike.bind(this);
   }
 
-  onLike() {
+  onLike(e) {
+    e.preventDefault();
     const newLikesCount = this.state.likes.push(1);
     this.setState({ likesCount: newLikesCount });
   }
@@ -19,7 +20,9 @@ class Like extends React.Component {
         Likes : {
           this.state.likes.map(() => 'Like! ')
         }
-        <div><button onClick={this.onLike}>Like Me</button></div>
+        <form action="/api/likes?redirect=1" method="POST">
+          <button onClick={this.onLike}>Like Me</button>
+        </form>
       </div>
     );
   }
